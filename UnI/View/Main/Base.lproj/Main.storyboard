@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RT7-Ae-fcL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RT7-Ae-fcL">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,7 +12,7 @@
         <!--Day View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DayViewController" customModule="UnI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DayViewController" id="BYZ-38-t0r" customClass="DayViewController" customModule="UnI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,6 +49,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aBL-ve-FNn">
+                        <barButtonItem key="leftBarButtonItem" title="Setting" image="gear" catalog="system" id="2nR-GM-tdz">
+                            <connections>
+                                <action selector="settingTapped:" destination="BYZ-38-t0r" id="rB1-ZH-mbT"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="AddDay" id="ggs-m1-Pzh">
                             <imageReference key="image" image="plus" catalog="system" renderingMode="template"/>
                             <connections>
@@ -112,6 +117,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="RT7-Ae-fcL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Wa-qO-3Ns">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -129,7 +135,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BtS-HB-hyw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="D-Day" id="ofe-1j-0lV">
-                        <imageReference key="image" image="heart" catalog="system" renderingMode="original"/>
+                        <imageReference key="image" image="heart" catalog="system" renderingMode="template"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ABV-dj-MTm">
@@ -150,7 +156,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kkb-QI-6bc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Diary" id="zVS-eB-LUd">
-                        <imageReference key="image" image="book.closed" catalog="system" renderingMode="original"/>
+                        <imageReference key="image" image="book.closed" catalog="system" renderingMode="template"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dzi-gA-3OX">
@@ -169,6 +175,7 @@
     </scenes>
     <resources>
         <image name="book.closed" catalog="system" width="115" height="128"/>
+        <image name="gear" catalog="system" width="128" height="122"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="people-2561053_1920" width="640" height="360"/>
         <image name="plus" catalog="system" width="128" height="113"/>

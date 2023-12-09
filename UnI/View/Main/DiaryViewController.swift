@@ -14,20 +14,17 @@ class DiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tabBarController?.tabBar.changeTabBar(hidden: false, animated: true)
+        if animationChecker == 1 {
+            tabBarController?.tabBar.changeTabBar(hidden: false, animated: true)
+            animationChecker = 0
+        }
     }
     
     @IBAction func addDiaryTapped(_ sender: Any) {
-        
-        tabBarController?.tabBar.changeTabBar(hidden: true, animated: true)
-        animationChecker
-        let sb = UIStoryboard(name: "AddDayView", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "AddDayViewController") as! AddDayViewController
-        navigationController?.pushViewController(vc, animated: true)
+        pushToViewController(name: "AddDiaryView", identifier: "AddDiaryViewController", animationChecker: &animationChecker)
     }
     
 }

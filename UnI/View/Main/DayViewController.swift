@@ -9,18 +9,26 @@ import UIKit
 
 class DayViewController: UIViewController {
 
+    static var animationChecker = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if DayViewController.animationChecker == 1 {
+            tabBarController?.tabBar.changeTabBar(hidden: false, animated: true)
+            DayViewController.animationChecker = 0
+        }
+    }
 
+    @IBAction func settingTapped(_ sender: UIBarButtonItem) {
+        pushToViewController(name: "SettingView", identifier: "SettingViewController", animationChecker: &DayViewController.animationChecker)
+    }
+    
     @IBAction func addDayTapped(_ sender: Any) {
-        
-        tabBarController?.tabBar.changeTabBar(hidden: true, animated: true)
-        
-        let sb = UIStoryboard(name: "AddDayView", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "AddDayViewController") as! AddDayViewController
-        navigationController?.pushViewController(vc, animated: true)
+        pushToViewController(name: "AddDayView", identifier: "AddDayViewController", animationChecker: &DayViewController.animationChecker)
     }
     
 }
